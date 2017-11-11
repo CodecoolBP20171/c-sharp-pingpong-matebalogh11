@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Media;
+using System;
 
 namespace PingPongGame
 {
@@ -13,8 +14,7 @@ namespace PingPongGame
         bool increased = false;
         int temp = 0;
         int slideLeft;
-        string sound1 = @"C:\Users\bmate\Documents\work\.NET module\TW_assignmets\c-sharp-pingpong-matebalogh11\PingPongGame\sounds\boing.wav";
-        string sound2 = @"C:\Users\bmate\Documents\work\.NET module\TW_assignmets\c-sharp-pingpong-matebalogh11\PingPongGame\sounds\game_over.wav";
+        string currentDir = Environment.CurrentDirectory;
         SoundPlayer player1;
         SoundPlayer overSound;
 
@@ -23,6 +23,8 @@ namespace PingPongGame
             InitializeComponent();
             this.TopMost = true;
             slideLeft = slide.Left;
+            string sound1 = currentDir + @"\sounds\boing.wav";
+            string sound2 = currentDir + @"\sounds\game_over.wav";
             player1 = new SoundPlayer(sound1);
             overSound = new SoundPlayer(sound2);
             this.MaximizeBox = false;
